@@ -1,15 +1,24 @@
-from tkinter import * import cv2
-import numpy as np import os
+from tkinter import * 
+import cv2
+import numpy as np 
+import os
 import math
-import matplotlib.pyplot as plt import pandas as pd
+import matplotlib.pyplot as plt 
+import pandas as pd
 
-from PIL import Image, ImageTk from tkinter import ttk
-from tkinter.filedialog import askopenfilename from skimage import morphology
-from skimage.restoration import denoise_nl_means, estimate_sigma from skimage import img_as_float
+from PIL import Image, ImageTk 
+from tkinter import ttk
+from tkinter.filedialog import askopenfilename 
+from skimage import morphology
+from skimage.restoration import denoise_nl_means, estimate_sigma 
+from skimage import img_as_float
 from scipy import ndimage as nd
 from skimage.filters import threshold_multiotsu
-from skimage import measure, io, img_as_ubyte, data from os import remove
-from skimage.measure import label, regionprops count = 0
+from skimage import measure, io, img_as_ubyte, data 
+from os import remove
+from skimage.measure import label, regionprops 
+
+count = 0
 
 class Window:
     def _init_(self, window): 
@@ -38,7 +47,8 @@ class Window:
         self.b3.place(x=120, y=270)
 
         self.bfin = Button(self.window, text="Cerrar", height = 5, width = 28, bg
-        ="gray7", fg ="gray92" ,font=("Roboto Cn",10), command = self.window.quit) self.bfin.place(x=60, y=400)
+        ="gray7", fg ="gray92" ,font=("Roboto Cn",10), command = self.window.quit) 
+        self.bfin.place(x=60, y=400)
 
 
     def rayosx(self):
@@ -70,14 +80,12 @@ class Window:
         elif (r1 < pix and pix <= r2):
             return ((s2 - s1) / (r2 - r1)) * (pix - r1) + s1
         else:
-            r1 = 50
-            s1 = 0
-            r2 = 200
-            s2 = 255
-            
-
             return ((255 - s2) / (255 - r2)) * (pix - r2) + s2
         
+    r1 = 50
+    s1 = 0
+    r2 = 200
+    s2 = 255
     pixelVal_vec = np.vectorize(pixelVal)
     cs = pixelVal_vec(claheNorm, r1, s1, r2, s2) 
     plt.imsave("cont.jpg",cs, cmap="gray")
@@ -166,7 +174,8 @@ class Window:
     maskimg3 = maskimg3.reshape((-1, 3)) 
     cluster = 3
     maskimg3[labels == cluster] = [0, 255, 0] 
-    maskimg3 = maskimg3.reshape(segmimg.shape) plt.imsave("mask3.jpg", maskimg3, cmap="gray")
+    maskimg3 = maskimg3.reshape(segmimg.shape) 
+    plt.imsave("mask3.jpg", maskimg3, cmap="gray")
 
     maskimg4 = np.copy(segmimg) 
     maskimg4 = maskimg4.reshape((-1, 3))
@@ -353,22 +362,26 @@ class Window:
     image2 = Image.open("axial.jpeg").resize((180,180)) 
     test1 = ImageTk.PhotoImage(image2)
     label2 = Label(image=test1) 
-    label2.image = test1 label2.place(x=830, y=110)
+    label2.image = test1 
+    label2.place(x=830, y=110)
 
     image3 = Image.open("mask1.jpg").resize((180,180)) 
     test2 = ImageTk.PhotoImage(image3)
     label3 = Label(image=test2) 
-    label3.image = test2 label3.place(x=1030, y=110)
+    label3.image = test2 
+    label3.place(x=1030, y=110)
 
     image4 = Image.open("mask2.jpg").resize((180,180)) 
     test3 = ImageTk.PhotoImage(image4)
     label4 = Label(image=test3) 
-    label4.image = test3 label4.place(x=830, y=335)
+    label4.image = test3 
+    label4.place(x=830, y=335)
 
     image5 = Image.open("mask3.jpg").resize((180,180)) 
     test4 = ImageTk.PhotoImage(image5)
     label5 = Label(image=test4) 
-    label5.image = test4 label5.place(x=1030, y=335)
+    label5.image = test4 
+    label5.place(x=1030, y=335)
 
     self.label = Label(self.window, text = "Estadificaciòn IIA", bg= "black", fg = "white")
     self.label.place(x=570, y=460)
