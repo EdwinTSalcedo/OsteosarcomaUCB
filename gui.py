@@ -99,6 +99,7 @@ class Window:
     img21 = cv2.imread('cont.jpg')
     gammaImg2 = gammaCorrection(img21, 0.9) 
     plt.imsave('corr.jpg', gammaImg2)
+
     self.label = Label(self.window, text = "Su imagen esta lista!", bg= "black", fg = "white")
     self.label.place(x=800, y=470)
 
@@ -343,9 +344,9 @@ class Window:
     a = int(form)
     img2 = cv2.imread("maskblue1.jpg") 
     for y in range(0, edge.shape[0]):
-    for x in range(0, edge.shape[1]): 
-        if edge[y, x] != 0:
-    ans = ans + [[x, y]] 
+        for x in range(0, edge.shape[1]): 
+            if edge[y, x] != 0:
+                ans = ans + [[x, y]] 
     imgWC = cv2.circle(img2,(x,y),form,(0,0,255),-1)
     plt.imsave("reseccion.jpg", imgWC, cmap="gray") 
     img3 = cv2.imread("reseccion.jpg")
@@ -389,14 +390,13 @@ class Window:
     self.label1 = Label(self.window, text = "Imagen Original", bg= "black", fg = "white")
     self.label1.place(x=870, y=78)
 
-    self.label2 = Label(self.window, text = "Lesiòn òsea", bg= "black", fg    = "white")
+    self.label2 = Label(self.window, text = "Lesiòn òsea", bg= "black", fg = "white")
     self.label2.place(x=1080, y=78)
     
     self.label3 = Label(self.window, text = "Lesiòn tejido blando", bg= "black", fg = "white")
     self.label3.place(x=850, y=310)
 
-    self.label4 = Label(self.window, text = "Tejido anexo", bg= "black",
-    fg = "white")
+    self.label4 = Label(self.window, text = "Tejido anexo", bg= "black", fg = "white")
     self.label4.place(x=1080, y=310)
 
 if __name__ == "_main_": 
