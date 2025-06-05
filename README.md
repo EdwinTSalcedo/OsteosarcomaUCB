@@ -57,19 +57,16 @@ Usage
 $python gui.py 
 ```
 
-You will obtain a inteface similar to this one: 
+You will obtain a interface similar to this one: 
 
 ![gui](gui.png)
 
 ## Results
 The proposed method demonstrates potential in accurately estimating surgical safety margins, aligning with clinical requirements for complete tumor resection while minimizing healthy tissue removal. Detailed results and evaluations are presented in the paper.
 
-## Acknowledgments
-We acknowledge the use of open-source medical imaging datasets and the support from the Universidad Católica Boliviana “San Pablo”.
-
 ## Citation
 
-If you find this project useful for your project, consider citing the following paper. 
+If you find this project useful, consider citing the following paper:
 
 ```
 @article{vargas2025,
