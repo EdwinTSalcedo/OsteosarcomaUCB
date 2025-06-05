@@ -15,7 +15,7 @@ This study introduces an unsupervised approach leveraging open-source MRI and X-
 
 ## Features
 
-- **Data Acquisition**: Uses MRI and X-ray images from open-source repositories.
+- **Data Acquisition**: Uses MRI and X-ray images from the open-source repository [https://radiopaedia.org/](https://radiopaedia.org/).
 - **Image Processing**: Applies digital techniques to preprocess and enhance medical images.
 - **Unsupervised Learning**: Implements k-means clustering to delineate tumor boundaries without labeled data.
 - **Margin Estimation**: Calculates confidence intervals for surgical safety margins based on clustered regions.
@@ -32,19 +32,18 @@ This study introduces an unsupervised approach leveraging open-source MRI and X-
   - scikit-learn
   - matplotlib
   - opencv-python
-  - pydicom
 
 ### Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/osteosarcoma-safety-margins.git
-   cd osteosarcoma-safety-margins
+   $git clone https://github.com/EdwinTSalcedo/OsteosarcomaUCB.git osteosarcoma
+   cd osteosarcoma
 
 2. Install dependencies:
    ```bash
-    pip install -r requirements.txt
+    $pip install -r requirements.txt
     ```
 
 Usage
@@ -52,30 +51,18 @@ Usage
 
     - Place MRI and X-ray images in the data/ directory.
 
-    - Ensure images are in DICOM format or convert them accordingly.
+2. Run the User Interface:
 
-2. Run the preprocessing script:
-
-```python
-python preprocess.py --input_dir data/ --output_dir processed_data/
+```bash
+$python gui.py 
 ```
 
-3. Execute the clustering algorithm:
+You will obtain a inteface similar to this one: 
 
-```python
-python cluster_analysis.py --input_dir processed_data/ --output_dir results/
-```
-
-4. Visualize the results:
-```python
-Visualize the results:
-```
+![gui](gui.png)
 
 ## Results
 The proposed method demonstrates potential in accurately estimating surgical safety margins, aligning with clinical requirements for complete tumor resection while minimizing healthy tissue removal. Detailed results and evaluations are presented in the paper.
-
-## License
-This project is licensed under the CC BY 4.0 License.
 
 ## Acknowledgments
 We acknowledge the use of open-source medical imaging datasets and the support from the Universidad Católica Boliviana “San Pablo”.
@@ -85,7 +72,7 @@ We acknowledge the use of open-source medical imaging datasets and the support f
 If you find this project useful for your project, consider citing the following paper. 
 
 ```
-@article{vargas2025predicting,
+@article{vargas2025,
   title={Predicting Surgical Safety Margins in Osteosarcoma Knee Resections: An Unsupervised Approach},
   author={Vargas-Ecos, Carolina and Salcedo, Edwin},
   journal={arXiv preprint arXiv:2505.06853},
