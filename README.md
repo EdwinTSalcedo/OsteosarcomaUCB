@@ -38,12 +38,12 @@ This study introduces an unsupervised approach leveraging open-source MRI and X-
 1. Clone the repository:
 
    ```bash
-   $git clone https://github.com/EdwinTSalcedo/OsteosarcomaUCB.git osteosarcoma
+   git clone https://github.com/EdwinTSalcedo/OsteosarcomaUCB.git osteosarcoma
    cd osteosarcoma
 
 2. Install dependencies:
    ```bash
-    $pip install -r requirements.txt
+   pip install -r requirements.txt
     ```
 
 Usage
@@ -54,7 +54,7 @@ Usage
 2. Run the User Interface:
 
 ```bash
-$python gui.py 
+python gui.py 
 ```
 
 You will obtain a interface similar to this one: 
